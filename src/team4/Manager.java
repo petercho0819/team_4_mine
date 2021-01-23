@@ -39,14 +39,22 @@ public class Manager {
 
 	public void register() {		// 회원가입 메소드
 		
-		
+	
 		System.out.println("아이디를 입력하세요 : ");		// 아이디 입력
 		String id  = sc.next();
 		sc.nextLine();
+		
+		
 		System.out.print("비밀번호를 입력하세요 : ");		// 비밀 번호 입력
 		String pwd = sc.nextLine();
 		System.out.print("비밀번호를 한 번 더 입력하세요 : ");	// 비밀 번호 재확인
 		String pwdDoubleCheck = sc.nextLine();			// 다른 클래스 생성
+//		if(!pwd.equals(pwdDoubleCheck)){
+//			System.out.println("비밀번호가 일치하지 않습니다");
+//			return ;
+//		}
+		
+		
 		System.out.print("이름을 입력하세요 : ");			// 이름 입력
 		String name = sc.nextLine();
 		System.out.print("태어난 년도를 입력하세요 : ");	// 태어난 년도 입력
@@ -75,6 +83,7 @@ public class Manager {
 			System.out.println(members.get(i).getInfo());
 			}
 	}
+	
 //	public boolean idcheck(String id) {
 //		if()
 //		
