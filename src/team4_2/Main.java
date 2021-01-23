@@ -1,12 +1,13 @@
 package team4_2;
 
-import java.util.ArrayList;
-import java.util.Scanner;
 
-public class Main {
+public class Main	{
+
 
 	public static void main(String[] args) {
-
+		Manager manager	= new Manager();
+		manager.Run();
+		
 		// 재고관리
 		
 		/*
@@ -31,83 +32,6 @@ public class Main {
 		 * 아라 99잔
 		 * 
 		 */
-		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("1. 수량 파악");
-		System.out.println("2. 주문");
-		System.out.println("9. 프로그램 종료");
-		int no = sc.nextInt();
-		
-		switch(no) {
-		case 1 : 
-			amount();	// 수량 파악 메소드
-			break;
-		case 2 :
-			order();	// 주문 메소드
-			break;
-		case 9 :
-			System.out.println("프로그램을 종료합니다");
-			return;
-		default : 
-			System.out.println("번호를 다시 입력해주세요.");
-			break;
-		}
-		
-		
-		
-		
 	}
-
-	public static void order() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("어떤 음료를 주문하시겠어요?");
-		System.out.println("아메리카노(1번), 라떼 (2번)");
-		int orderNum = sc.nextInt();
-		
-		switch(orderNum) {
-		case 1: 
-			americano();
-			break;
-		case 2 :
-			break;
-		
-		default : 
-			System.out.println("다시 입력해주세요");
-			break;
-		
-		
-		}
-		
-	}
-
-	public static void americano() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("몇 잔을 주문하시겠어요?");
-		int jan = sc.nextInt();
-		
-		
-		
-	}
-
-	public static void amount() {
-		americano();
-		
-		ArrayList americano = new ArrayList();
-		ArrayList latte = new ArrayList();
-		
-		americano.add("아메리카노");
-		americano.add(100);
-		
-		latte.add("라떼");
-		latte.add(80);
-		
-		
-		
-		
-		
-		
-	}
-
+	
 }
