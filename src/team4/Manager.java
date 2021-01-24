@@ -38,24 +38,33 @@ public class Manager {
 	} //run 종료
 
 	public void register() {		// 회원가입 메소드
-		
+		String pwd = "";
+		String pwdDoubleCheck = "";
 	
 		System.out.println("아이디를 입력하세요 : ");		// 아이디 입력
 		String id  = sc.next();
 		sc.nextLine();
 		
-		here :
-//		Passcheck();								// 비밀번호 재확인.
-		System.out.print("비밀번호를 입력하세요 : ");		// 비밀 번호 입력
-		String pwd = sc.nextLine();
-		System.out.print("비밀번호를 한 번 더 입력하세요 : ");	// 비밀 번호 재확인
-		String pwdDoubleCheck = sc.nextLine();
-		if(!pwd.equals(pwdDoubleCheck)){
-			System.out.println("비밀번호가 일치하지 않습니다");
-			System.out.println("비밀번호를 다시 입력하세요.");
-//			break here;
-			return;
+		boolean pwdCheck = true;
+		while(pwdCheck) {								// 비밀번호가 일치 할 때까지 반복!!
+			System.out.print("비밀번호를 입력하세요 : ");		// 비밀 번호 입력
+			pwd = sc.nextLine();
+			System.out.print("비밀번호를 한 번 더 입력하세요 : ");	// 비밀 번호 재확인
+			pwdDoubleCheck = sc.nextLine();
+			
+			if (!pwd.equals(pwdDoubleCheck)){					
+				System.out.println("비밀번호가 일치하지 않습니다");
+				System.out.println("비밀번호를 다시 입력하세요.");
+//				break here;
+			
+			}else {
+				System.out.println("입력하신 비밀번호가 일치합니다.");
+				break;
+			}
+		
 		}
+						
+	
 		System.out.print("이름을 입력하세요 : ");			// 이름 입력
 		String name = sc.nextLine();
 		System.out.print("태어난 년도를 입력하세요 : ");	// 태어난 년도 입력
@@ -66,9 +75,7 @@ public class Manager {
 		int day = sc.nextInt();
 		System.out.print("이메일을 입력하세요 : ");		// 이메일 입력
 		String email = sc.next();
-		
-
-		
+			
 			if(pwd.equals(pwdDoubleCheck)) {		// 비밀번호와 비밀번호 확인 입력
 				loginDTO = new LoginDTO(id, pwd, pwdDoubleCheck, name, year, month, day, email);	// 비밀번호 일치시 회원가입 정보를 배열로 저장
 			members.add(loginDTO);								
@@ -84,14 +91,6 @@ public class Manager {
 	}
 	
 
-
-//	public void Passcheck() {
-		
-		
-//		}
-//		
-//		return;
-//	}
 
 	public void login() {		//로그인 메소드
 		System.out.println("아이디를 입력하세요 : ");	// 아이디 입력
