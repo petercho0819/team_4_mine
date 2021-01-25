@@ -4,10 +4,10 @@ public class BeverageDTO {
 	
 	public BeverageDTO() {}
 	
-	private int stockameJan;			// 초기 아메리카노 stock
-	private int stocklatteJan;		// 초기 라떼 stock
-	private int orderAmeJan;	// 아메리카노 음료 잔
-	private int orderLatteJan;	// 라떼 음료 
+	static int stockameJan;			// 초기 아메리카노 stock
+	static int stocklatteJan;		// 초기 라떼 stock
+	static int orderAmeJan;	// 아메리카노 음료 잔
+	static int orderLatteJan;	// 라떼 음료 
 	@Override
 	public String toString() {
 		return "BeverageDTO [stockameJan=" + stockameJan + ", stocklatteJan=" + stocklatteJan + ", orderAmeJan="
