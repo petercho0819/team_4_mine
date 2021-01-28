@@ -8,8 +8,14 @@ public class Manager {
 		BeverageDTO beverageDTO = new BeverageDTO();
 		Scanner sc = new Scanner(System.in);
 
-		
-	
+		ArrayList americano = new ArrayList();
+		ArrayList latte = new ArrayList();
+		{
+		americano.add("아메리카노");
+		americano.add(100);
+		latte.add("라떼");
+		latte.add(80);
+		}
 	public void Run() {
 		
 		
@@ -21,7 +27,7 @@ public class Manager {
 		
 		switch(no) {
 		case 1 : 
-			amount();	// 수량 파악 메소드
+			stock();	// 수량 파악 메소드
 			break;
 		case 2 :
 			order();	// 주문 메소드
@@ -86,30 +92,31 @@ public class Manager {
 
 	
 
-	public  void amount() {
+public  void stock() {}
 		
 //		System.out.println(ameJan);
 		
-		ArrayList americano = new ArrayList();
-		ArrayList latte = new ArrayList();
 		
-		americano.add("아메리카노");
-		americano.add(100);
-		latte.add("라떼");
-		latte.add(80);
+	
 		
-//		int ameJan = beverageDTO.getOrderAmeJan();
+		
+		
+//		System.out.println(beverageDTO.size());
+//		int latteJan = beverageDTO.getOrderLatteJan();
+//		int americano = beverageDTO.getStockameJan();
+//		int latte = beverageDTO.getStocklatteJan();
+//		
 		
 //		if(ameJan  == 0) {				// 아메리카노 수량 확인, 주문이 없을 시 재고 수량 그대로 출력
 //			System.out.println("현재 아메리카노의 수량은 " + americano.get(1));
-//
+//			
 //		}else {							// 아메리카노 주문시 수량만큼 빼고 출력
 //			int ameJan1 = (int) americano.get(1);
 //			int remain = ameJan1 - ameJan;
 //			americano.set(1, remain);
 //			System.out.println("현재 아메리카노의 수량은 : " + americano.get(1));
-		}
-		
+//		}
+//		
 //		if(latteJan  == 0) {
 //			System.out.println("현재 라떼의 수량은 " + latte.get(1));
 //

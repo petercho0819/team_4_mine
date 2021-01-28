@@ -7,21 +7,17 @@ import team4.LoginDTO;
 
 public class Manager {
 	
-		BeverageDTO beverageDTO = new BeverageDTO();
+//		BeverageDTO beverageDTO = new BeverageDTO();
 		Scanner sc = new Scanner(System.in);
 //		ArrayList<BeverageDTO> americano = new ArrayList<>();	// 아메리카노 1차원 배열
 //		ArrayList<BeverageDTO> latte = new ArrayList<>();	// 라떼 1차원 배열
 		
-		ArrayList americano = new ArrayList();
-		ArrayList latte = new ArrayList();
+		ArrayList<BeverageDTO> beverageDTO = new ArrayList<>();
 
 		public Manager() {
-			americano.add("아메리카노");
-			americano.add(100);
-			latte.add("라떼");
-			latte.add(80);
+			beverageDTO.add(new BeverageDTO("아메리카노", 100, "라떼", 80));
+			
 		}
-	
 	public void Run() {
 		
 		
@@ -57,21 +53,30 @@ public class Manager {
 		System.out.println("어떤 음료를 주문하시겠어요?");		// 음료선택
 		System.out.println("아메리카노(1번), 라떼 (2번)");	//아메인지 라떼인지 선택
 		int orderNum = sc.nextInt();
+		int ameJan;
+		int latteJan;
+		int stockAme2;
+		int stocklatte2;
 		
 		switch(orderNum) {
 		case 1: 
 			System.out.println("몇 잔을 주문하시겠어요?");
-			int ameJan = sc.nextInt();						// 아메리카노 주문
+			ameJan = sc.nextInt();						// 아메리카노 주문
 			System.out.println("주문하신 아메리카노는 " + ameJan + "잔 입니다.");
 			
-			beverageDTO.setOrderAmeJan(ameJan);
+			stockAme2 = beverageDTO.get(0).getStockameJan();
+			int remain = ameJan - stockAme2;
+			
+			stocklatte2 = beverageDTO.get(0).getStocklatteJan();
+//			int remain2 = latteJan - stocklatte2;
+			
 			break;
 		case 2 :
 			System.out.println("몇 잔을 주문하시겠어요?");
-			int latteJan = sc.nextInt();						// 아메리카노 주문
+			latteJan = sc.nextInt();						// 아메리카노 주문
 			System.out.println("주문하신 아메리카노는 " + latteJan + "잔 입니다.");
 			
-			beverageDTO.setOrderLatteJan(latteJan);									// 라떼 주문
+//			beverageDTO.setOrderLatteJan(latteJan);									// 라떼 주문
 			break;
 		
 		default : 
@@ -82,23 +87,6 @@ public class Manager {
 		}
 		
 	}
-
-//	public void latte() {							// 라떼 주문시
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("몇 잔을 주문하시겠어요?");
-//		int latteJan = sc.nextInt();
-//		amount(0, latteJan);						//라떼값 입력
-//	}
-
-
-
-//	public  void americano() {
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("몇 잔을 주문하시겠어요?");
-//		int ameJan = sc.nextInt();
-//		amount(ameJan, 0);							// 아메값 입력
-//		
-//	}
 
 	
 
@@ -112,29 +100,31 @@ public class Manager {
 		
 		
 		
-		int ameJan = beverageDTO.getOrderAmeJan();
-		int latteJan = beverageDTO.getOrderLatteJan();
+//		System.out.println(beverageDTO.size());
+//		int latteJan = beverageDTO.getOrderLatteJan();
+//		int americano = beverageDTO.getStockameJan();
+//		int latte = beverageDTO.getStocklatteJan();
+//		
 		
-		
-		if(ameJan  == 0) {				// 아메리카노 수량 확인, 주문이 없을 시 재고 수량 그대로 출력
-			System.out.println("현재 아메리카노의 수량은 " + americano.get(1));
-
-		}else {							// 아메리카노 주문시 수량만큼 빼고 출력
-			int ameJan1 = (int) americano.get(1);
-			int remain = ameJan1 - ameJan;
-			americano.set(1, remain);
-			System.out.println("현재 아메리카노의 수량은 : " + americano.get(1));
-		}
-		
-		if(latteJan  == 0) {
-			System.out.println("현재 라떼의 수량은 " + latte.get(1));
-
-		}else {
-			int latteJan1 = (int) latte.get(1);
-			int remain = latteJan1 - latteJan;
-			latte.set(1, remain);
-			System.out.println("현재 아메리카노의 수량은 : " + latte.get(1));
-		}
+//		if(ameJan  == 0) {				// 아메리카노 수량 확인, 주문이 없을 시 재고 수량 그대로 출력
+//			System.out.println("현재 아메리카노의 수량은 " + americano.get(1));
+//			
+//		}else {							// 아메리카노 주문시 수량만큼 빼고 출력
+//			int ameJan1 = (int) americano.get(1);
+//			int remain = ameJan1 - ameJan;
+//			americano.set(1, remain);
+//			System.out.println("현재 아메리카노의 수량은 : " + americano.get(1));
+//		}
+//		
+//		if(latteJan  == 0) {
+//			System.out.println("현재 라떼의 수량은 " + latte.get(1));
+//
+//		}else {
+//			int latteJan1 = (int) latte.get(1);
+//			int remain = latteJan1 - latteJan;
+//			latte.set(1, remain);
+//			System.out.println("현재 아메리카노의 수량은 : " + latte.get(1));
+//		}
 		
 		
 		/*
