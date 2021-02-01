@@ -1,4 +1,4 @@
-package team4_login_3;
+package swing_ys;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -16,34 +16,38 @@ import java.util.Scanner;
 //import com.greedy.section03.filterstream.MyOutputStream;
 //import com.greedy.section03.filterstream.DTO.MemberDTO;
 
-public class IO {
+public class MemberDB {
 
-		
+
 	
-	public void insertMember() {
+	public void insertMember(ArrayList<MemberDTO> register_DB) {	
+		// 받은 회원 정보 (Arraylist) 
 
 		/* 회원 정보를 파일로 저장하기 위한 출력 */
-		ArrayList<MemberDTO> outputMembers = new ArrayList<>();
 		
-		
+//		Register register = new Register();
+//		register.regi
+//		ArrayList<MemberDTO> outputMembers = register_DB;
+
+//		outputMembers.add(memberinfo);
 		ObjectOutputStream objOut = null;
 
 		try {
 
-			if (new File("src/team4_login_3/memberDB.txt").exists()) {
+			if (new File("src/swing_ys/memberDB.txt").exists()) {
 				/* 기존에 파일이 있을 경우 */
 				objOut = new MyOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/team4_login_3/memberDB.txt", true)));
+						new BufferedOutputStream(new FileOutputStream("src/swing_ys/memberDB.txt", true)));
 
 			} else {
 				/* 기존에 파일이 없을 경우 */
 				objOut = new ObjectOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/team4_login_3/memberDB.txt")));
+						new BufferedOutputStream(new FileOutputStream("src/swing_ys/memberDB.txt")));
 			}
 
-			for (int i = 0; i < outputMembers.size(); i++) {
+			for (int i = 0; i < register_DB.size(); i++) {
 
-				objOut.writeObject(outputMembers.get(i));
+				objOut.writeObject(register_DB.get(i));
 			}
 
 		} catch (FileNotFoundException e) {
@@ -71,7 +75,7 @@ public class IO {
 		ObjectInputStream objIn = null;
 
 		try {
-			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/team4_login_3/memberDB.txt")));
+			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/swing_ys/memberDB.txt")));
 
 			while (true) {
 
@@ -84,8 +88,8 @@ public class IO {
 		} catch (EOFException e) {
 			for (int j = 0; j < inputMembers.size(); j++) {
 				System.out.println("inputmembers: " + inputMembers.get(j));
-			}
-			System.out.println("파일 읽기 완료");
+			}	// 회원 정보가 입력이 되어 있는지 확인!
+//			System.out.println("파일 읽기 완료");
 		} catch (FileNotFoundException e1) {
 
 			System.out.println("파일 못찾음");

@@ -14,30 +14,6 @@ public class Application {
 		Scanner sc = new Scanner(System.in);
 		Register register = new Register();		// 회원 회원가입 인스턴스
 		Login login = new Login();				// 회원 로그인 인스턴스
-		ArrayList<MemberDTO> al = new ArrayList<>();
-
-		/* 회원 정보 출력 */
-		IO oo = new IO();
-		oo.insertMember();
-
-		/* 회원의 정보 입력 */
-//		al = new IO().checkMethod();
-//
-//		for(int j = 0; j < al.size(); j++) {
-//
-//			if(al.get(j).getId() == null) {
-//				System.out.println("회원등록이 되어 있지 않습니다. 회원가입을 먼저해주세요.");
-//
-//				return;
-//			}else if(al.get(j).getId().equals(id2)) {
-//				System.out.println("회원중에 일치하는 아이디가 있습니다.");
-//			}else {
-//				System.out.println("아이디가 일치하는 회원이 없습니다.");
-//
-//			}
-
-
-
 
 			while(true) {
 				System.out.println("======= 회원가입 페이지 =======");	// 회원페이지

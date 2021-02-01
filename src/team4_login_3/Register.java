@@ -10,9 +10,12 @@ public class Register {
 	/* 회원가입 */
 	public void register_member() {
 		
-		IO io = new IO();
+		MemberDB mDB = new MemberDB();	// 멤버를 담을 클래스 선언
+
+		
+//		IO io = new IO();
 		MemberDTO memberDTO = new MemberDTO();
-		ArrayList<MemberDTO> outputMembers = new ArrayList<>();
+		ArrayList<MemberDTO> outputMembers = new ArrayList<>();	// 회원정보를 담을 arraylist 생성
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("아이디를 입력하세요 : ");	// 아이디 입력
@@ -20,7 +23,6 @@ public class Register {
 		String pwd = "";				// 비밀번호
 		String pwdDoubleCheck = "";		// 비밀번호 확인
 
-		sc.nextLine();
 		
 		while(true) {										// 비밀번호 확인 loop 비밀번호 일치시까지 loop
 
@@ -39,13 +41,6 @@ public class Register {
 			}
 
 		}
-		if(pwd.equals(pwdDoubleCheck)) {		// 비밀번호와 비밀번호 확인 입력
-			//				
-			System.out.println(id + "님 회원가입을 축하드립니다.");		// 비밀번호 일치시 회원가입 축하 문구
-		}else {		// 비밀번호 불일치시
-			System.out.println("비밀번호가 일치 하지 않습니다. 비밀번호를 확인해주세요.");		// 비밀번호 불일치시 문구
-			return;
-		}
 		
 		System.out.println("이름을 입력하세요");
 		String name = sc.nextLine();
@@ -59,8 +54,24 @@ public class Register {
 		String email = sc.nextLine();
 		
 		
-		memberDTO = new MemberDTO(id, pwd, pwdDoubleCheck, name, year, month, day, email);	// 비밀번호 일치시 회원가입 정보를 배열로 저장
-//		objOut.writeObject(memberDTO);
+		if(pwd.equals(pwdDoubleCheck)) {		// 비밀번호와 비밀번호 확인 입력
+			//				
+			System.out.println(id + "님 회원가입을 축하드립니다.");		// 비밀번호 일치시 회원가입 축하 문구
+		}else {		// 비밀번호 불일치시
+			System.out.println("비밀번호가 일치 하지 않습니다. 비밀번호를 확인해주세요.");		// 비밀번호 불일치시 문구
+			return;
+		}
+		
+		
+		
+		
+		outputMembers.add(new MemberDTO(id, pwd, pwdDoubleCheck, name, year, month, day, email));	// 비밀번호 일치시 회원가입 정보를 배열로 저장
+		outputMembers.add(new MemberDTO("user01", "pass01", "pass01", "더조은", "2020", "01", "01", "더조은@gmail.com"));
+		
+		
+		// 받은 회원정보를 arraylist에 담기
+		mDB.insertMember(outputMembers);	// 담은 회원 정보를 멤버DB의 inserMember메소드로 보냄
+		
 	}
 
 	
