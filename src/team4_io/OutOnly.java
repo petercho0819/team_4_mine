@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 //import com.greedy.section03.filterstream.MyOutputStream;
 //import com.greedy.section03.filterstream.DTO.MemberDTO;

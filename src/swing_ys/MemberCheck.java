@@ -32,6 +32,7 @@ public class MemberCheck {
 
 	}
 
+	/* 멤버 등록 */
 	public void allCheck(String id, String pwd, String pwdDoubleCheck, String name, String year, String month, String day, String email) {
 
 		/* 회원 등록 */
@@ -52,6 +53,7 @@ public class MemberCheck {
 		}
 	}
 
+	/* 비밀번호 중복 일치 확인 */
 	public boolean pwdCheck(String pwd, String pwdDoubleCheck) {
 
 		boolean pwdCheck = true;
@@ -64,9 +66,7 @@ public class MemberCheck {
 
 	}
 
-
-
-
+	/* 로그인 */
 	public static boolean loginCheck(String id, String pwd) {
 
 
@@ -84,6 +84,7 @@ public class MemberCheck {
 		return islogin;
 	}
 
+	/* 매니져 로그인 */
 	public static boolean Manager(String id, String pwd) {
 
 
@@ -99,4 +100,30 @@ public class MemberCheck {
 
 		return islogin;
 	}
+
+	/* 회원가입시 빈칸 확인 */
+	public static boolean blank (String id, String pwd, String pwdDoubleCheck, String name, String year, String month, String day, String email) {
+		boolean isBlank = true;
+		
+		if(id.isBlank() || pwd.isBlank() || pwdDoubleCheck.isBlank() || name.isBlank() || year.isBlank() ||
+					month.isBlank() || day.isBlank() || email.isBlank()) {
+			
+			JOptionPane.showMessageDialog(null, "공란이 있습니다. 공란을 작성하여주세요.");
+			
+			isBlank = false;
+		}
+	
+		return isBlank;
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
