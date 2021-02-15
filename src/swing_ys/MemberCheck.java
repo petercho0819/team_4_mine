@@ -45,7 +45,10 @@ public class MemberCheck {
 		//		}
 
 		while(true) {
-			outputMembers.add(new swing_ys.MemberDTO(id, pwd, pwdDoubleCheck, name, year, month, day, email));
+			outputMembers.add(new MemberDTO(id, pwd, pwdDoubleCheck, name, year, month, day, email));
+			outputMembers.add(new MemberDTO("user01", "pass01", "pass01", "홍길동", "abc@greedy.com", "1990", "08", "11"));
+			outputMembers.add(new MemberDTO("user02", "pass02", "pass02", "김개똥", "edf@greedy.com", "1987", "03", "19"));
+			outputMembers.add(new MemberDTO("user03", "pass03", "pass03", "임꺽정", "ghi@greedy.com", "1985", "08", "11"));
 			memberdb.insertMember(outputMembers);
 			System.out.println("등록한 회원 :" + outputMembers);
 			JOptionPane.showInternalMessageDialog(null, "회원등록이 완료 되었습니다.");

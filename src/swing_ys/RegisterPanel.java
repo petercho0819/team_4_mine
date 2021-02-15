@@ -33,13 +33,10 @@ public class RegisterPanel extends JPanel{
 	public RegisterPanel(MainFrame mf) {
 		this.mf = mf;
 		this.registerPanel = this;
-
 		this.setBackground(Color.ORANGE);
+		
 		MemberCheck memberCheck = new MemberCheck();
 
-
-		MemberDB memberdb = new MemberDB();
-		ArrayList<MemberDTO> outputMembers = new ArrayList<>();
 
 		this.setLayout(null);
 		this.setSize(1200, 700);

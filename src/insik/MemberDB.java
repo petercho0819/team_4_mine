@@ -1,4 +1,4 @@
-package swing_ys;
+package insik;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -11,14 +11,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //import com.greedy.section03.filterstream.MyOutputStream;
 //import com.greedy.section03.filterstream.DTO.MemberDTO;
 
 public class MemberDB {
 
-
-	
 	public void insertMember(ArrayList<MemberDTO> register_DB) {	
 		// 받은 회원 정보 (Arraylist) 
 
@@ -26,27 +25,22 @@ public class MemberDB {
 		
 //		Register register = new Register();
 //		register.regi
-		ArrayList<MemberDTO> outputMembers = register_DB;
-		
-//		register_DB.add(new MemberDTO("user01", "pass01", "pass01", "홍길동", "abc@greedy.com", "1990", "08", "11"));
-//		register_DB.add(new MemberDTO("user02", "pass02", "pass02", "김개똥", "edf@greedy.com", "1987", "03", "19"));
-//		register_DB.add(new MemberDTO("user03", "pass03", "pass03", "임꺽정", "ghi@greedy.com", "1985", "08", "11"));
+//		ArrayList<MemberDTO> outputMembers = register_DB;
+
 //		outputMembers.add(memberinfo);
-		
-		/* 파일 입력 */
 		ObjectOutputStream objOut = null;
 
 		try {
 
-			if (new File("src/swing_ys/memberDB.txt").exists()) {
+			if (new File("src/insik/memberDB.txt").exists()) {
 				/* 기존에 파일이 있을 경우 */
 				objOut = new MyOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/swing_ys/memberDB.txt", true)));
+						new BufferedOutputStream(new FileOutputStream("src/insik/memberDB.txt", true)));
 
 			} else {
 				/* 기존에 파일이 없을 경우 */
 				objOut = new ObjectOutputStream(
-						new BufferedOutputStream(new FileOutputStream("src/swing_ys/memberDB.txt")));
+						new BufferedOutputStream(new FileOutputStream("src/insik/memberDB.txt")));
 			}
 
 			for (int i = 0; i < register_DB.size(); i++) {
@@ -79,20 +73,21 @@ public class MemberDB {
 		ObjectInputStream objIn = null;
 
 		try {
-			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/swing_ys/memberDB.txt")));
+			objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("src/insik/memberDB.txt")));
 
 			while (true) {
 
 				MemberDTO input = (MemberDTO) objIn.readObject();
+				
 				inputMembers.add(input);
 
 			}
 
 
 		} catch (EOFException e) {
-//			for (int j = 0; j < inputMembers.size(); j++) {
-//				System.out.println("inputmembers: " + inputMembers.get(j));
-//			}	// 회원 정보가 입력이 되어 있는지 확인!
+			for (int j = 0; j < inputMembers.size(); j++) {
+				System.out.println("inputmembers: " + inputMembers.get(j));
+			}	// 회원 정보가 입력이 되어 있는지 확인!
 //			System.out.println("파일 읽기 완료");
 		} catch (FileNotFoundException e1) {
 

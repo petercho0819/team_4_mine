@@ -37,10 +37,10 @@ public class MainPanel extends JPanel{
 		
 	
 		
-		Image icon = new ImageIcon("src/swing_ys/coffe.jpg").getImage();
-		JLabel label = new JLabel(new ImageIcon(icon));
-		label.setBounds(0, 0, 1000, 700);
-		this.add(label);
+//		Image icon = new ImageIcon("src/swing_ys/coffe.jpg").getImage();
+//		JLabel label = new JLabel(new ImageIcon(icon));
+//		label.setBounds(0, 0, 1000, 700);
+//		this.add(label);
 		
 //		JPanel logo = new JPanel();
 //		JLabel logo = new JLabel(new ImageIcon("src/swing_ys/coffe.jpg"));
